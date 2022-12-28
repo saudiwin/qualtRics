@@ -48,7 +48,7 @@ fetch_mailinglist <- function(mailinglistID){
                       email = purrr::map_chr(elements, "email", .default = NA_character_),
                       externalDataReference = purrr::map_chr(elements, "externalDataReference", .default = NA_character_),
                       language = purrr::map_chr(elements, "language", .default = NA_character_),
-                      unsubscribed = purrr::map_lgl(elements, "unsubscribed", .default = NA))
+                      unsubscribed = purrr::map_chr(elements, "unsubscribed", .default = NA))
 
   embeddedData <- purrr::map(elements, "embeddedData")
   if(!all(purrr::map_lgl(embeddedData, purrr::is_empty))){
